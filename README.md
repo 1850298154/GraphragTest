@@ -147,6 +147,13 @@ mkdir -p ./cache
 ## 2.7 初始化   
 python -m graphrag.index --init  --root ./        
 
+https://github.com/microsoft/graphrag/issues/378
+python -m graphrag.index --init
+
+https://blog.csdn.net/weixin_42107217/article/details/141649920
+python -m graphrag.index --init --root ./ragtest
+
+
 ## 2.8 设置参数
 设置.env和settings.yaml       
 **注意1:** 针对阿里通义千问大模型具体参考提供的other/temp下的.env和settings.yaml文件内容，直接拷贝即可      
@@ -173,6 +180,9 @@ Ollama是一个轻量级、跨平台的工具和库，专门为本地大语言�
 ollama pull qwen2:latest          
 ollama pull llama3.1:latest               
 ollama pull nomic-embed-text:latest      
+
+ollama run qwen3:8b
+
 本次使用的模型如下:               
 chat模型:qwen2:latest(7b),对应版本有0.5b、1.5b、7b、72b;llama3.1:latest(也就是llama3.1:8b)，对应版本有8b、70b、405b等                                  
 embedding模型:nomic-embed-text:latest(也就是1.5版本)           
@@ -223,3 +233,42 @@ GRAPHRAG_FOLDER="/Users/janetjiang/Desktop/agi_code/GraphragTest/ragtest/inputs/
 ## 3.4 知识图谱使用3D图进行可视化 
 **注意:** 需要将代码中的如下代码中的文件路径，替换为你的对应工程的文件路径，然后运行utils文件下的graphrag3dknowledge.py脚本            
 directory = '/Users/janetjiang/Desktop/agi_code/GraphragTest/ragtest/inputs/artifacts'        
+
+
+# 教程资料
+[傻瓜操作：GraphRAG、Ollama 本地部署及踩坑记录](https://blog.csdn.net/weixin_42107217/article/details/141649920)
+
+安装 past
+[微软开源GraphRAG的安装+示例教程（最全超详细教程，小白上手）](https://zhuanlan.zhihu.com/p/18343810012)
+
+domain
+[超详细，GraphRAG（最新版）+Ollama本地部署，以及中英文示例](https://juejin.cn/post/7439046849883226146)
+
+[GraphRAG 本地部署（Ollama）](https://juejin.cn/post/7495966937101877298)
+
+[2025最新版微软GraphRAG 2.0.0本地部署教程：基于Ollama快速构建知识图谱](https://blog.csdn.net/m0_54356251/article/details/146074188)
+
+    
+-   | 方法 | 命令示例 | 用途 |
+    | --- | --- | --- |
+    | **全局查询** | `python -m graphrag query --method global --query "知识图谱定义"` | 跨文档综合分析 |
+    | **局部查询** | `python -m graphrag query --method local --query "知识图谱定义"` | 单文档精准检索 |
+    | **DRIFT查询** | `python -m graphrag query --method drift --query "知识图谱定义"` | 动态漂移分析 |
+    | **基础查询** | `python -m graphrag query --method basic --query "知识图谱定义"` | 传统RAG检索 |
+
+[GraphRag安装部署及简单测试](https://zeeklog.com/graphrag-an-zhuang-bu-shu-ji-jian-dan-ce-shi/)
+
+[GraphRAG快速入门](https://techdiylife.github.io/blog/blog.html?category1=c01&blogid=0061)
+
+## 
+# 环境配置
+conda create -n graphrag-env python=3.12
+conda activate graphrag-env
+conda deactivate
+
+
+python -m graphrag.index --init  --root ./        
+python -m graphrag.prompt_tune --config ./settings.yaml --root ./ --no-entity-types --language Chinese --output ./prompts-ch   
+
+
+python -m graphrag.index --root ./             
