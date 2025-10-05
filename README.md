@@ -95,7 +95,7 @@ https://github.com/songquanpeng/one-api
 下载OneAPI可执行文件one-api并上传到服务器中然后，执行如下命令后台运行                
 nohup ./one-api --port 3000 --log-dir ./logs > output.log 2>&1 &                 
 运行成功后，浏览器打开如下地址进入one-api页面，默认账号密码为：root 123456               
-http://IP:3000/           
+ http://localhost:3000
 ### (3)创建渠道和令牌       
 创建渠道：大模型类型(通义千问)、APIKey(通义千问申请的真实有效的APIKey)             
 创建令牌：创建OneAPI的APIKey，后续代码中直接调用此APIKey                       
