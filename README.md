@@ -94,6 +94,8 @@ python -m graphrag.prompt_tune --config ./settings.yaml --root ./ --no-entity-ty
 https://github.com/songquanpeng/one-api          
 下载OneAPI可执行文件one-api并上传到服务器中然后，执行如下命令后台运行                
 nohup ./one-api --port 3000 --log-dir ./logs > output.log 2>&1 &                 
+
+D:\software\one-api\download
 运行成功后，浏览器打开如下地址进入one-api页面，默认账号密码为：root 123456               
  http://localhost:3000
 ### (3)创建渠道和令牌       
