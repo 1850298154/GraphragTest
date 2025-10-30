@@ -274,3 +274,12 @@ python -m graphrag.prompt_tune --config ./settings.yaml --root ./ --no-entity-ty
 
 
 python -m graphrag.index --root ./             
+
+
+## 查看
+python --version  # 或 python3 --version（区分 Python2 时）
+
+pip list  # 列出所有已安装的库及版本
+# 或更简洁的格式：
+pip freeze 
+
